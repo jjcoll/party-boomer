@@ -4,7 +4,7 @@ from app.selenium_script import create_caos
 from threading import Thread
 
 song_name = 'nothing'
-playing = False
+app_playing = False
 url = ''
 given_likes = 0;
 total_likes = 0;
@@ -26,11 +26,11 @@ def index():
 def playing():
   global given_likes
   global total_likes
-  global playing
-  if playing == False:
-    playing = True;
-    given_likes = 0
-    total_likes = 0
+  global app_playing
+  print(app_playing)
+  if app_playing == False:
+    app_playing = True;
+    print(app_playing)
     play_thread = Thread(target=play)
     play_thread.start()
     return render_template('playing.html')
@@ -48,9 +48,15 @@ def update_playing():
 
 def play():
   global given_likes
-  global playing
+  global app_playing
+  global total_likes
   for i in range(total_likes):
+    print('doing something')
     create_caos(url, song_name)
     given_likes = i + 1
-  playing = False
+  app_playing = False
+
+  given_likes = 0
+  total_likes = 0
+  print('finished')
   return
