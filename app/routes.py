@@ -27,7 +27,7 @@ def playing():
   # play_thread.start()
   return render_template('test.html')
 
-@app.reoute('/test', methods=['GET'])
+@app.route('/test', methods=['GET'])
 def test():
   return render_template('test.html')
 
