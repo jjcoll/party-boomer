@@ -23,9 +23,9 @@ def index():
 
 @app.route('/playing', methods=['GET', 'POST'])
 def playing():
-  # play_thread = Thread(target=play)
-  # play_thread.start()
-  return render_template('test.html')
+  play_thread = Thread(target=play)
+  play_thread.start()
+  return render_template('playing.html')
 
 @app.route('/test', methods=['GET'])
 def test():
