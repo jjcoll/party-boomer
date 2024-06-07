@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>We are f***ing the party, you song will be played soon</h3>
+  <div>
+      <p>We are trying to play <b class="song-name"></b></p>
+      <p>Given <b class="given-likes"></b> out of <b class="total-likes"></b> likes</p>
+  </div>
+  
+  <script>
+      const url = 'get_playing_stats'
+      setInterval(async () => {
+        console.log('This runs')
+        const res = await fetch(url)
+        const data = await res.json()
+        const totalLikesEl = document.querySelector('.total-likes') 
+        const givenLikesEl = document.querySelector('.given-likes')
+        const songNameEl = document.querySelector('.song-name')
+
+        totalLikesEl.textContent = data.total_likes
+        givenLikesEl.textContent = data.given_likes
+        songNameEl.textContent = data.song_name
+      }, 1000)
+  </script>
+</body>
+</html>
+
+
