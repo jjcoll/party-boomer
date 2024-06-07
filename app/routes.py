@@ -27,6 +27,11 @@ def playing():
   # play_thread.start()
   return render_template('test.html')
 
+@app.reoute('/test', methods=['GET'])
+def test():
+  return render_template('test.html')
+
+
 @app.route('/get_playing_stats', methods=['GET'])
 def update_playing():
     return jsonify({'song_name': song_name, 'total_likes': total_likes, 'given_likes': given_likes })
