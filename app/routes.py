@@ -25,7 +25,7 @@ def index():
 def playing():
   # play_thread = Thread(target=play)
   # play_thread.start()
-  return render_template('playing.html')
+  return render_template('test.html')
 
 @app.route('/get_playing_stats', methods=['GET'])
 def update_playing():
